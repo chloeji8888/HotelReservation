@@ -1,0 +1,14 @@
+package model.room;
+import model.room.RoomType;
+
+public class FreeRoom extends Room{
+
+    public FreeRoom(String _roomNumber, double _price, RoomType _enumeration) {
+        super(_roomNumber, 0.0, _enumeration);
+    }
+
+    @Override
+    public String toString(){
+        return "Free room => " + super.toString();
+    }
+}
