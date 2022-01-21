@@ -1,0 +1,71 @@
+package model.reservation;
+
+import model.customer.Customer;
+import model.room.IRoom;
+
+import java.util.Date;
+
+public class Reservation {
+    private Customer customer;
+    private IRoom room;
+    private Date checkInDate;
+    private Date checkOutDate;
+
+    public Reservation(final Customer _customer, final IRoom _room, final Date _checkInDate, final Date _checkOutDate) {
+        this.customer = _customer;
+        this.room = _room;
+        this.checkInDate = _checkInDate;
+        this.checkOutDate = _checkOutDate;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+
+    }
+
+    public IRoom getRoom() {
+        return this.room;
+    }
+
+    public Date getCheckInDate() {
+        return this.checkInDate;
+    }
+
+    public Date getCheckOutDate() {
+        return this.checkOutDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (this.getClass() != o.getClass()) {
+            return false;
+        }
+        Reservation user = (Reservation) o;
+        return customer.equals(user.customer)
+                && room.equals(user.room)
+                && checkInDate == user.checkInDate
+                && checkOutDate == user.checkOutDate;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) customer.hashCode()
+                * (int) room.hashCode()
+                * (int) checkInDate.hashCode()
+                * (int) checkOutDate.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Customer: " + this.customer.toString()
+                + "\nRoom: " + this.room.toString()
+                + "\nCheckIn Date: " + this.checkInDate
+                + "\nCheckOut Date: " + this.checkOutDate;
+    }
+}
